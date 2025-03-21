@@ -19,7 +19,7 @@ int generarNumeroAleatorio(int n) {
 
 // Inicializamos variables y el vector que representa al tablero
 std::vector<int> casillas(40, 0);
-int casillaActual = 0;
+int casillaActual = 1;
 int casillaSiguiente;
 int dado1;
 int dado2;
@@ -52,6 +52,7 @@ int main() {
 
 	// Simulamos las tiradas recorriendo el tablero
 	while (vueltasInt < vueltas) {
+		casillas[casillaActual - 1] += 1;
 		dado1 = generarNumeroAleatorio(6);
 		dado2 = generarNumeroAleatorio(6);
 		casillaSiguiente = casillaActual + dado1 + dado2;
@@ -137,10 +138,11 @@ int main() {
 		if (casillaActual == 37 || casillaActual == 39 || casillaActual == 40) { //EUROPA VERDE
 			Europa2+=1;
 		}
-			casillas[casillaSiguiente - 1] += 1;
 			casillaActual = casillaSiguiente;
 		}
-
+	
+	casillas[casillaActual - 1] += 1; //Incluímos la última casilla visitada
+	
 		// Desplegamos los resultados
 		std::cout << "Casilla actual: " << casillaActual << std::endl;
 		std::cout << "Aerolineas visitadas: " << aerolineas << std::endl;
