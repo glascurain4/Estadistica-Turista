@@ -52,7 +52,6 @@ int main() {
 
 	// Simulamos las tiradas recorriendo el tablero
 	while (vueltasInt < vueltas) {
-		casillas[casillaActual - 1] += 1;
 		dado1 = generarNumeroAleatorio(6);
 		dado2 = generarNumeroAleatorio(6);
 		casillaSiguiente = casillaActual + dado1 + dado2;
@@ -87,8 +86,6 @@ int main() {
 				MensajeCarcel++;
 				}
 			mensajes+=1;
-			casillas[casillaSiguiente - 1] += 1;
-			casillaActual = casillaSiguiente;
 			}
 
 		// Tarjeta de correo
@@ -98,15 +95,14 @@ int main() {
 					CorreoAlemania++;
 					}
 				correos++;
-				casillas[casillaSiguiente - 1] += 1;
-				casillaActual = casillaSiguiente;
 				}
 			// Aerolineas
 				if (casillaActual == 6 || casillaActual == 16 || casillaActual == 26 || casillaActual == 36) {
 					aerolineas+=1;
 				}
 
-			// BLOQUES
+														// BLOQUES
+		
 		if (casillaActual == 2 || casillaActual == 3 || casillaActual == 5) { //AFRICA
 			Africa+=1;
 		}
@@ -138,6 +134,7 @@ int main() {
 		if (casillaActual == 37 || casillaActual == 39 || casillaActual == 40) { //EUROPA VERDE
 			Europa2+=1;
 		}
+			casillas[casillaActual - 1] += 1;
 			casillaActual = casillaSiguiente;
 		}
 	
